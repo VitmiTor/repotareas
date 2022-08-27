@@ -91,5 +91,4 @@ public class Logs {
     public void debug(String message) {
         log.debug(message);
     }
-
 }
