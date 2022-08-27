@@ -1,0 +1,115 @@
+[1mdiff --git a/src/test/java/MaestroPokemonTests/MaestroPokemonTests.java b/src/test/java/MaestroPokemonTests/MaestroPokemonTests.java[m
+[1mindex e073968..bf5a980 100644[m
+[1m--- a/src/test/java/MaestroPokemonTests/MaestroPokemonTests.java[m
+[1m+++ b/src/test/java/MaestroPokemonTests/MaestroPokemonTests.java[m
+[36m@@ -11,26 +11,14 @@[m [mpublic class MaestroPokemonTests extends BaseTest {[m
+     private MaestroPokemonModel maestro1;[m
+     private MaestroPokemonModel maestro2;[m
+ [m
+[32m+[m[32m    private String codigo = "PO-01";[m
+[32m+[m
+ [m
+     @BeforeMethod[m
+     public void agregarValores() {[m
+         maestro1 = new MaestroPokemonModel();[m
+         maestro2 = new MaestroPokemonModel();[m
+ [m
+[31m-        maestro1.getApellido();[m
+[31m-        maestro1.getEdad();[m
+[31m-        maestro1.getEmail();[m
+[31m-        maestro1.getPeso();[m
+[31m-        maestro1.getPais();[m
+[31m-        maestro1.isEsHombre();[m
+[31m-[m
+[31m-        maestro2.getApellido();[m
+[31m-        maestro2.getEdad();[m
+[31m-        maestro2.getEmail();[m
+[31m-        maestro2.getPeso();[m
+[31m-        maestro2.getPais();[m
+[31m-        maestro2.isEsHombre();[m
+[31m-[m
+         logs.info("Nombre Pokemon Master 1 " + maestro1.getNombre());[m
+         logs.info("Nombre Pokemon Master 2 " + maestro2.getNombre());[m
+         logs.info("Soy la precondición del test de MaestroPokemonTests");[m
+[36m@@ -44,29 +32,22 @@[m [mpublic class MaestroPokemonTests extends BaseTest {[m
+     @Test[m
+     public void compararNombresTest() {[m
+         logs.info("Verificando que los nombres de los maestros pokemons sean iguales");[m
+[31m-        var nombre1 = maestro1.getNombre();[m
+[31m-        var nombre2 = maestro2.getNombre();[m
+[31m-        Assert.assertEquals(nombre2, nombre1);[m
+[32m+[m[32m        Assert.assertEquals(maestro1.getNombre(), maestro2.getNombre());[m
+     }[m
+ [m
+     @Test[m
+     public void compararEspecialidadTest() {[m
+         logs.info("Verificando que la especialidad de los maestros pokemons sean iguales");[m
+[31m-        var especilidad1 = maestro1.getEspecialidad();[m
+[31m-        var especialidad2 = maestro2.getEspecialidad();[m
+[31m-        Assert.assertEquals(especialidad2, especilidad1);[m
+[32m+[m[32m        Assert.assertEquals(maestro1.getEspecialidad(), maestro2.getEspecialidad());[m
+     }[m
+ [m
+     @Test[m
+     public void compararApellidoCodigoEspecialidadTest() {[m
+         logs.info("Verificando que las especialidades de los maestros pokemons sean iguales");[m
+[31m-        var especilidad1 = maestro1.getEspecialidad();[m
+[31m-        var especialidad2 = maestro2.getEspecialidad();[m
+[31m-        softAssert.assertEquals(especialidad2, especilidad1, "Las especialidades no son iguales");[m
+[32m+[m[32m        softAssert.assertEquals(maestro1.getEspecialidad(), maestro2.getEspecialidad(), "Las especialidades no son iguales");[m
+[32m+[m
+         logs.info("Verificar que el codigo de especialidad de los maestros pokemons sean iguales");[m
+[31m-        var codigoMaestro1 = maestro1.getCodigoEspecialidad();[m
+[31m-        var codigoMaestro2 = maestro2.getCodigoEspecialidad();[m
+[31m-        softAssert.assertEquals(codigoMaestro1, codigoMaestro2, "Los codigos de especialidades no son iguales");[m
+[32m+[m[32m        softAssert.assertEquals(maestro1.getCodigoEspecialidad(), maestro2.getCodigoEspecialidad(), "Los codigos de especialidades no son iguales");[m
+ [m
+         softAssert.assertAll();[m
+     }[m
+[36m@@ -74,11 +55,11 @@[m [mpublic class MaestroPokemonTests extends BaseTest {[m
+     @Test[m
+     public void validarEspecialidadPokemonTest() {[m
+         logs.info("Verificando que el maestro pokemon 1 sea efectivamente un maestro pokemon por su especialidad");[m
+[31m-        var especialidad1 = maestro1.getEspecialidad();[m
+[31m-        softAssert.assertEquals(especialidad1, "Maestro Pokemon");[m
+[32m+[m[32m        softAssert.assertEquals(maestro1.getEspecialidad(), "Maestro Pokemon");[m
+[32m+[m
+         logs.info("Verificando que maestro pokemon 2 sea efectivamente un maestro pokemon por su especialidad");[m
+[31m-        var especialidad2 = maestro2.getEspecialidad();[m
+[31m-        softAssert.assertEquals(especialidad2, "Maestro Pokemon");[m
+[32m+[m[32m        softAssert.assertEquals(maestro2.getEspecialidad(), "Maestro Pokemon");[m
+[32m+[m
+         logs.info("OK ambos son Maestros pokemons según su especialidad");[m
+ [m
+         softAssert.assertAll();[m
+[36m@@ -88,24 +69,21 @@[m [mpublic class MaestroPokemonTests extends BaseTest {[m
+     public void validaCodigoEspecialidadTest() {[m
+         logs.info("Verificando que el Maestro pokemon 1 sea efectivamente un maestro pokemon por su codigo de " +[m
+                 " especialidad ");[m
+[31m-        var codigo1 = maestro1.getCodigoEspecialidad();[m
+[31m-        softAssert.assertEquals(codigo1, "PO-01");[m
+[32m+[m[32m        softAssert.assertEquals(maestro1.getCodigoEspecialidad(), codigo);[m
+[32m+[m
+         logs.info("Verificando que el Maestro pokemon 2 sea efectivamente un maestro pokemon por su codigo de " +[m
+                 " especialidad ");[m
+[31m-        var codigo2 = maestro2.getCodigoEspecialidad();[m
+[31m-        softAssert.assertEquals(codigo2, "PO-01");[m
+[31m-        logs.info("OK ambos son Maestros pokemons según su cóodigo de especialidad");[m
+[32m+[m[32m        softAssert.assertEquals(maestro2.getCodigoEspecialidad(), codigo);[m
+ [m
+[32m+[m[32m        logs.info("OK ambos son Maestros pokemons según su cóodigo de especialidad");[m
+         softAssert.assertAll();[m
+     }[m
+ [m
+     @Test[m
+     public void validaInformacionMaestroTest() {[m
+         logs.info("Verificando que el maestro pokemon 1 sea efectivamente un maestro pokemon por la especiadlidad");[m
+[31m-        var especialidad1 = maestro1.getEspecialidad();[m
+[31m-        var codigo1 = maestro1.getCodigoEspecialidad();[m
+[31m-        Assert.assertEquals(especialidad1, "Maestro Pokemon");[m
+[31m-        Assert.assertEquals(codigo1, "PO-01");[m
+[32m+[m[32m        Assert.assertEquals(maestro1.getEspecialidad(), "Maestro Pokemon");[m
+[32m+[m[32m        Assert.assertEquals(maestro1.getCodigoEspecialidad(), codigo);[m
+     }[m
+ [m
+     @AfterMethod[m

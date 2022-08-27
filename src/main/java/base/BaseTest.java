@@ -9,17 +9,15 @@ import org.testng.asserts.SoftAssert;
 public class BaseTest {
     protected final Logs logs = new Logs();
     protected final Faker faker = new Faker();
-    protected final SoftAssert softAssert = new SoftAssert();
 
     @BeforeMethod
     public void setupBase() {
         logs.info("Iniciando Base Test");
+        SoftAssert softAssert = new SoftAssert();
     }
 
     @AfterMethod
     public void teardownBase() {
         logs.info("Terminando BaseTest \n");
     }
-
-
 }
