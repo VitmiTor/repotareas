@@ -10,9 +10,7 @@ import org.testng.annotations.Test;
 public class MaestroPokemonTests extends BaseTest {
     private MaestroPokemonModel maestro1;
     private MaestroPokemonModel maestro2;
-
     private String codigo = "PO-01";
-
 
     @BeforeMethod
     public void agregarValores() {
